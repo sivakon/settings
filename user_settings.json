@@ -1,0 +1,32 @@
+{
+    "d.workspacedPath": "C:\\Users\\Sivaram Konanki\\.vscode\\extensions\\webfreak.code-d-0.16.2\\bin\\workspace-d.exe",
+    "d.dfmtPath": "C:\\Users\\Sivaram Konanki\\.vscode\\extensions\\webfreak.code-d-0.16.2\\bin\\dfmt\\bin\\dfmt.exe",
+    "d.dcdClientPath": "C:\\Users\\Sivaram Konanki\\.vscode\\extensions\\webfreak.code-d-0.16.2\\bin\\DCD\\bin\\dcd-client.exe",
+    "d.dcdServerPath": "C:\\Users\\Sivaram Konanki\\.vscode\\extensions\\webfreak.code-d-0.16.2\\bin\\DCD\\bin\\dcd-server.exe",
+    "d.dscannerPath": "C:\\Users\\Sivaram Konanki\\.vscode\\extensions\\webfreak.code-d-0.16.2\\bin\\Dscanner\\bin\\dscanner.exe",
+    "workbench.colorTheme": "Monokai Pro",
+    "editor.fontFamily": "'Fira Code', 'Courier New', monospace",
+    "terminal.integrated.shell.windows": "C:\\Windows\\System32\\bash.exe",
+    "editor.fontLigatures": true,
+    "macros": {
+        "execCurLn" : [
+            "expandLineSelection",
+            "workbench.action.terminal.runSelectedText",
+            "cancelSelection"
+        ],
+        "commentDown": [
+            "editor.action.copyLinesDownAction",
+            "cursorUp",
+            "editor.action.addCommentLine",
+            "cursorDown"
+        ]
+    },
+    "workbench.iconTheme": "Monokai Pro Icons",
+    "markdown.preview.scrollPreviewWithEditorSelection": false,
+    "markdown.styles": [
+        "C:\\Users\\Sivaram Konanki\\Documents\\settings\\my_style.css"
+    ],
+    "files.associations": {
+        "*.sc" : "scala"
+    }
+}
