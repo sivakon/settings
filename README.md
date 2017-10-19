@@ -1,5 +1,10 @@
 # This is SF Pro Display. Looks good on Windows too.
 
+## Get the list of all the VSCode extensions and update README.
+
+----------
+
+
 Settings files and scala
 
 Raining blood

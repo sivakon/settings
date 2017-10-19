@@ -130,6 +130,9 @@ pow(2,4)
 
 min(3, Pi)
 
+(math.pow _) (2.0,3.0) // this is same as
+math.pow(2.0,3.0)
+
 // also scala.math.min(3,Pi)
 scala.math.min(3,Pi)
 
