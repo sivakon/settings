@@ -11,7 +11,7 @@ Raining blood
 
 this is a test file.
 
-This is a new thins in the wvorld.
+This is a new thins in the world.
 
 Is this the best thing in the world.
 
