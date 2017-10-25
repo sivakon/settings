@@ -130,6 +130,12 @@ val counts = words.
              groupBy($"value").
              count() 
 
+val words = textFile.as[String].
+            flatMap(_.split(" ")).
+            filter(_ != "").
+            groupBy("value").
+            count()
+
 // Filtering on Datasets are not efficient. Convert this to DF and filter
 // (thereby loading only the data) and do stuff and convert it back to Dataset
 //This is wrong. Conversion to DF is for pre-2.0 compatibilty. Some DF functions
