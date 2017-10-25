@@ -86,6 +86,7 @@ import org.apache.poi.xwpf.usermodel._
 
 import $ivy.`org.apache.spark::spark-sql:2.2.0`
 import org.apache.spark.sql.SparkSession
+import org.apache.spark.sql.Row
 val spark = SparkSession.builder.appName("SimpleApp").config("spark.master","local").getOrCreate()
 
 val logFile = "/usr/local/spark/README.md"
@@ -94,6 +95,54 @@ val data = spark.read.textFile(logFile).cache()
 val numAs = data.filter(line => line.contains("a")).count()
 
 spark.stop()
+
+/**
+    load data with sqlContext or SparkSession (preferred) to infer the schema
+ */
+
+import spark.implicits._
+
+val df = spark.read.json("/usr/local/spark/examples/src/main/resources/people.json")
+df.show()
+
+df.printSchema()
+
+case class Person(name: String, age: Long)
+
+val persons = df.as[Person] //df is a dataframe, we convert to dataset
+
+persons.show()
+
+val rel = persons.select($"age",$"name")
+rel.show()
+
+rel.filter($"age" > 20).show()
+
+val textFile = spark.read.text("/usr/local/spark/README.md")
+textFile.show()
+textFile.printSchema()
+// |- value: string
+import org.apache.spark.sql.Row
+val words = textFile.
+             select("value").
+             flatMap{case Row(value: String) => value.split(" ")}
+val counts = words.
+             groupBy($"value").
+             count() 
+
+// Filtering on Datasets are not efficient. Convert this to DF and filter
+// (thereby loading only the data) and do stuff and convert it back to Dataset
+//This is wrong. Conversion to DF is for pre-2.0 compatibilty. Some DF functions
+
+df.groupBy("age").agg(min("hours-per-week"),
+                      max("hours-per-week"))
+//implicit conversion example here
+val happiness = ds.toDF().filter($"happy" === true).as[RawPanda] //
+
+
+
+
+
 
 
 // import java.util.{Arrays, List, ArrayList}
