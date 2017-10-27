@@ -62,6 +62,3 @@ df.select(avg("").over(a))
 - Check out databricks
 - https://docs.databricks.com/user-guide/faq/running-c-plus-plus-code.html
 - talk is [here](https://www.youtube.com/watch?v=jbclxiAaKFQ)
-
-
-
