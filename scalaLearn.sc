@@ -261,3 +261,60 @@ a.count(x => simpleFun(x))
 a.count(simpleFun _)
 
 "Hello".count( x => x.isUpper)
+
+
+//Objects are like classes, where you can instantiate only methods you want
+
+
+// Why companion objects or companion class
+// Why? You may want to give users convenient way of constructing 
+// instances of the class that don't involve calling a constructor
+
+// Usually
+object Point {
+    def apply(x: Double, y: Double) = new Point(x,y)
+}
+
+// Client does not have to call new
+val p = Point(3,4) * factor
+// prettier than new Point (3,4)
+
+
+// Traits can have abstract fields.
+// ---- A concrete implementing class must supply them
+
+// Traits can have concrete fields
+// ---- Concrete trait fields are added to the implementing class
+
+// Traits cannot have contruction parameters
+// ---- Techinically, this is the only difference between classes and traits
+
+
+/*
+    Mixins -::::- 
+    Order an ice-cream, order mixins like chocolate chip cookie, sprinkles
+
+*/
+
+
+trait Logged {
+    def log(msg: String) {}
+}
+
+trait ConsoleLogger extends Logged {
+    override def log(msg: String) { println(msg) }
+}
+
+class SavingsAccount extends Logged {
+    private var balance: Double = 0
+    def withdraw(amount: Double) {
+        if (amount > balance) log("Insufficient funds")
+        else balance -= amount
+    }
+}
+
+val acct = new SavingsAccount with ConsoleLogger
+
+// log method is some abstract method that we don't know
+
+
